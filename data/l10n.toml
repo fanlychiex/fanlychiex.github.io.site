@@ -1,0 +1,42 @@
+[articles]
+    read_more = "阅读全文"
+    words = "words"
+    readingtime = "minute read"
+    share = "分享"
+    comments = "评论"
+
+# Linked older/newer posts at the bottom of each one
+[articles.linked_posts]
+    older = "上一篇"
+    newer = "下一篇"
+
+[search]
+    placeholder = "Search"
+
+[pagination]
+    previous = "上一页"
+    next = "下一页"
+
+[profile]
+    follow_button = "Follow"
+    tags = "Tags"
+    posts = "Posts"
+
+[page_not_found]
+    title = "404 - page not found"
+    subtitle = "很抱歉，你访问的页面走丢了……"
+
+[widgets.categories]
+    title = "Categories"
+
+[widgets.recent_articles]
+    title = "最新文章"
+
+[widgets.tag_cloud]
+    title = "文章标签"
+
+[widgets.tags]
+    title = "标签"
+
+[widgets.archive]
+    title = "文章归档"

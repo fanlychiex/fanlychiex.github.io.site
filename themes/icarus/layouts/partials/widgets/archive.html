@@ -1,0 +1,17 @@
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        {{with .Site.Data.l10n.widgets.archive.title}}{{.}}{{end}}
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            {{ range $value := (where .Site.RegularPages "Type" "post").GroupByDate .Site.Params.month_format }}
+            {{ $url := (index $value.Pages 0).Date.Format "2006-01" | urlize }}
+            <li>
+                <div class="item-inner">
+                    <p class="item-title"><a href="{{ $.Site.BaseURL }}#{{ $url }}" style="font-size: 13px;">{{ .Key }}</a><span class="archive-list-count">{{ len $value.Pages }}</span></p>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>

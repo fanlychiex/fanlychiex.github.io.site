@@ -1,0 +1,80 @@
+<article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+            <img src="{{ .Params.banner | absURL }}" class="article-banner">
+        {{ end }}
+
+        {{ partial "article_header" . }}
+        <div class="article-entry" itemprop="articleBody">
+            {{ .Content }}
+        </div>
+        {{ partial "article_footer" . }}
+    </div>
+
+    {{ partial "prev_next_post" . }}
+</article>
+
+<section id="article-footer-bottom">
+    <div class="cc-copyright-block">
+        <table>
+                <tr>
+                    <td width="12%"><span class="cc-item">本文作者</span>：</td>
+                    <td><a href="https://fanlychie.github.io" title="{{ .Site.Params.author }} Blog">{{ .Site.Params.author }}</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文标题</span>：</td>
+                    <td><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">本文链接</span>：</td>
+                    <td><a href="{{ .Permalink }}" title="{{ .Permalink }}">{{ .Permalink }}</a></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">发布时间</span>：</td>
+                    <td><time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format .Site.Params.date_time_format }}</time></td>
+                </tr>
+                <tr>
+                    <td><span class="cc-item">版权声明</span>：</td>
+                    <td>本文采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="license" target="_blank"><i class="fa fa-creative-commons"></i>署名-非商业性使用-禁止演绎4.0国际许可协议</a>转载请保留以上声明信息！</td>
+                </tr>
+                <!-- <tr>
+                    <td>二 维 码：</td>
+                    <td>
+                        <img id="article-qrcode"/>
+                        <script src="https://cdn.jsdelivr.net/gh/englishextra/qrjs2@0.1.6/qrjs2.min.js"></script>
+                        <script>
+                            u = "{{ .Permalink }}",
+                            s = QRCode.generatePNG(u, {
+                                    ecclevel: "L",
+                                    format: "html",
+                                    fillcolor: "#fff",
+                                    textcolor: "#676767",
+                                    margin: 2,
+                                    modulesize: 3
+                                });
+                            $("#article-qrcode").prop("src", s);
+                        </script>
+                    </td>
+                </tr> -->
+        </table>
+    </div>
+</section>
+
+{{ if and (not (eq .Site.DisqusShortname "")) (not .Params.disable_comments) }}
+<section id="comments">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script type="text/javascript">
+        const gitment = new Gitment({
+            id: '{{ .BaseFileName }}',
+            owner: 'fanlychiex',
+            repo: 'fanlychiex.github.io.comment',
+            oauth: {
+                client_id: 'b5097d8f4d2079b8ce4b',
+                client_secret: 'f80e146bc58b149e4f332d63d3b3831925a57e9b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+{{ end }}
