@@ -1097,7 +1097,7 @@ a.article-title:hover {
 .article-entry ol,
 .article-entry dl {
     margin-top: 1.6em;
-    margin-bottom: 1.6em;
+    /* margin-bottom: 1.6em; */
 }
 
 .article-entry img,

@@ -140,7 +140,11 @@ group | 可以自由顺序组合多个仓库使用
 
 ![](https://raw.githubusercontent.com/fanlychie/mdimg/master/nexus_hosted_repo.png)
 
-注：第三方构件包可以手工上传到此仓库。
+| 部署策略 | 描述 |
+| ---- | ---- |
+| Allow redeploy | 允许重新部署。<br>同一个构件同一版本的包可以重复发布多次到此仓库中。 |
+| Disable redeploy | 不允许重新部署。<br>即一个构件同一版本的包只可以发布一次到此仓库中。 |
+| Read-only | 只读。<br>不允许发布构件到此仓库中。 |
 
 - [x] 配置仓库组
 
